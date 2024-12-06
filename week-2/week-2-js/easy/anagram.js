@@ -5,7 +5,21 @@
 */
 
 function isAnagram(str1, str2) {
+  l1 = str1.length;
+  l2 = str2.length;
+  if (l1 == l2){
+    s1 = str1.toLowerCase().split('').sort();
+    s2 = str2.toLowerCase().split('').sort();
+    if (JSON.stringify(s1)==JSON.stringify(s2)){
+      return true;
+    }
+    return false;
+  }
+  else{
+    return false;
+  }
 
 }
 
 module.exports = isAnagram;
+isAnagram('Debit Card', 'Bad Credit')

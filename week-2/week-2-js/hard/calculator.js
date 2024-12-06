@@ -16,6 +16,48 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor(){
+    this.result = 0;
+  }
+  add(num){
+    return this.result += parseInt(num);
+    
+  }
+  subtract(num){
+    return this.result -= parseInt(num);
+  }
+  multiply(num){
+    return this.result *= parseInt(num);
+  }
+  divide(num){
+    if(num != 0){
+      return this.result /= parseFloat(num);
+    }
+    else{
+      throw error;
+    }
+
+  }
+  calculate(exp){
+    let str = exp.replace(/ /g, '');
+    if (str.includes('/0')) {
+      throw new Error('Division by zero');
+    }
+    let result = eval(str);
+    if(isNaN(result)){
+      throw error;
+    }
+    return this.result = result;
+  }
+  clear(){
+    return this.result = 0;
+  }
+  getResult(){
+    return this.result;
+  }
+
+}
+
 
 module.exports = Calculator;
