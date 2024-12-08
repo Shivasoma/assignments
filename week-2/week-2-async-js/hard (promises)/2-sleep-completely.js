@@ -5,6 +5,18 @@
  */
 
 function sleep(milliseconds) {
+    function main(resolve){
+        let startTime = new Date().getTime();
+        while (new Date().getTime() < startTime + milliseconds);
+        resolve();
+        }
+    return new Promise(main);
+
 }
+
+function callBack() {
+    console.log("Done");
+}
+sleep(3000).then(callBack)
 
 module.exports = sleep;
